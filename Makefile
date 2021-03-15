@@ -1,6 +1,6 @@
 MKFILE_PATH := $(abspath $(dir $(firstword $(MAKEFILE_LIST))))
 
-PATH_TO_EMCC=path/to/emcc
+PATH_TO_EMCC=emcc
 HEADER_FILES = canvas.h ChartJS_handler.h html_canvas.h simulation.h statistics_handler.h subject.h
 SOURCE_FILES = ChartJS_handler.cpp html_canvas.cpp main.cpp simulation.cpp subject.cpp
 
@@ -28,7 +28,7 @@ clean:
 
 copydeps:
 	@echo Copying dependencies...
-	@cd $(HTML_DEPENDENCIES_PATH) && cp -t $(OUTPUT_PATH) $(HTML_DEPENDENCIES)
+	@cd $(HTML_DEPENDENCIES_PATH) && cp -R $(HTML_DEPENDENCIES) $(OUTPUT_PATH)
 	@echo Copying dependencies done.
 
 run-debug: debug-build
